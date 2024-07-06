@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SSSSSSS</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1 class="prev">Рассчет успешности рекламной кампании</h1>
+    <div id="modal1" data-modal="1">
+      <div>
+        <label id="label" class="feedback__label label" for="file">
+          Нажмите, чтобы выбрать файл
+        </label>
+        <input class="feedfile" id="file" type="file" />
+      </div>
+
+      <div class="sendfile">
+        <button id="upload" class="pressed-button">Отправить</button>
+        <button type="reset" id="reset" class="pressed-button">Очистить</button>
+      </div>
+    </div>
+    <div id = 'loader1' style="display: none; color: azure;">Подождите, идет загрузка данных...</div>
+    <div>
+      <div id = 'metr' class="metr">Xbckj</div>
+      <div style="display: none" id="chart-container" class="chart-container">
+        <canvas id="radarChart"></canvas>
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+    <h1 class="prev">Найти полигон для проведения рекламной кампании</h1>
+    <form id="target-audience-form">
+      <div style="display: flex; justify-content: space-between">
+        <div class="age">
+          <label for="age-from">Возраст от:</label>
+          <input
+            class="age"
+            type="number"
+            id="age-from"
+            name="age_from"
+            min="0"
+            value="18"
+            required
+          />
+        </div>
+        <div class="age">
+          <label for="age-to">Возраст до:</label>
+          <input
+            class="age"
+            style="margin-left: -5%"
+            type="number"
+            id="age-to"
+            name="age_to"
+            min="1"
+            value="100"
+            required
+          />
+        </div>
+      </div>
+      <div>
+        <div>
+          <label for="gender">Пол:</label>
+          <select class="selectiom" id="gender" name="gender" required>
+            <option value="all">Любой пол</option>
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+          </select>
+        </div>
+        <div>
+          <label for="income">Доход:</label>
+          <select class="selectiom" id="income" name="income" required>
+            <option value="ABC">ABC</option>
+            <option value="BC">BC</option>
+            <option value="AC">AC</option>
+            <option value="C">C</option>
+            <option value="B">B</option>
+          </select>
+        </div>
+        <div>
+          <label for="mode">Приоритет</label>
+          <select class="selectiom" id="mode" name="mode" required>
+            <option value="deep">Точность</option>
+            <option value="quick">Скорость</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="count">Количество:</label>
+        <input
+          style="width: 98%"
+          type="number"
+          id="count"
+          name="count"
+          min="0"
+          value="0"
+          required
+        />
+      </div>
+      <button class="buttom" type="submit">Отправить</button>
+    </form>
+    <div id = 'loader2' style="display: none; color: azure;">Подождите, идет загрузка данных...</div>
+    <div id="card">
+      <div id="mymap"></div>
+      <div class="button-group flex-style">
+        <div class="component1">
+          <button class="map-zoom-out-btn">Вернуться к обзору</button>
+        </div>
+        <div class="component2">
+          <select class="select-dropdown" name="dropdown">
+            <option>Выберите полигон</option>
+          </select>
+          <button class="search-btn">Посмотреть</button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
