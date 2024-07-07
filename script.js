@@ -60,8 +60,8 @@ function updateMap(data) {
   drawnItems.clearLayers();
   for (let i = 0; i < data.length; i++) {
     let polygon = L.polygon(data[i].polygon, {
-      color: "#00218b",
-      fillColor: "#00218b",
+      color: "#4cf5f2",
+      fillColor: "#4cf5f2",
       fillOpacity: 0.5,
     })
       .bindPopup(`<h3> ${data[i].title} </h3>`)
